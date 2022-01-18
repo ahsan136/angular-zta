@@ -27,7 +27,7 @@ return this.updateVal();
     }
     
   tiles: Tile[] = [
-    {text: 'One', cols: 3, rows: 3, color: 'lightblue'},
+    {text: 'One', cols: 3, rows: 3, color: 'blue'},
     {text: 'Two', cols: 1, rows: 4, color: 'lightgreen'},
     {text: 'Three', cols: 1, rows: 1, color: 'lightgreen'},
     {text: 'Four', cols: 2, rows: 1, color: 'blue'},

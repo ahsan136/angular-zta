@@ -1,64 +1,41 @@
-<div class="main">
-    <img class="lmImage"  src="./assets/LockheedMartin.png">
-    <h1 class="logo">ZTA</h1>
-    <h1 class="title">Dashboard</h1>
 
-    <mat-grid-list cols="5" rowHeight="70px">
+<div style="background-color: black; padding: 20px; padding-top: 30px">
+    <img class="lmImage" src="./assets/LockheedMartin.png">
+    <h1 class="logo">ZTA</h1>
+    <div class="logo" style="font-size: 20px"> Zero-Trust Architecture</div>
+    <h1 class="title">Dashboard</h1>
+</div>
+
+<div class="main">
+    <mat-grid-list cols="6" rowHeight="200px">
+        <mat-grid-tile
+          [colspan]="1"
+          [rowspan]="1"
+          [style.background]="'#6682a6'">
+            <button type="button" id="leak-detected" (click)="onLeakDetected($event)">
+                <div class="scenarios">
+                    Leak Detected
+                </div>
+            </button>
+        </mat-grid-tile>
+
         <mat-grid-tile
           [colspan]="5"
-          [rowspan]="2"
-          [style.background]="'lightblue'">
-            <div class="stats">
-                <div style="margin-bottom: 10px"><strong>Zero-Trust</strong></div>
-                <div style="margin-bottom: 10px"><strong>Architecture</strong></div>
-                <div><strong>(ZTA)</strong></div>
-            </div>
-            <mat-divider vertical style="height:200px"></mat-divider>
-            <div class="stats">
-                <div style="margin-bottom: 10px">Hybrid</div>
-                <div style="margin-bottom: 10px">Terrestrial</div>
-                <div style="margin-bottom: 10px">Space</div>
-                <div>Design</div>
-            </div>
-            <mat-divider vertical style="height:200px"></mat-divider>
-            <div class="stats">
-                <div style="margin-bottom: 10px">Always-On</div>
-                <div>Connectivity </div>
-            </div>
-            <mat-divider vertical style="height:200px"></mat-divider>
-            <div class="stats">
-                <div style="margin-bottom: 10px">Dual</div>
-                <div style="margin-bottom: 10px">Homed</div>
-                <div>Gateways</div>
-            </div>
-            <mat-divider vertical style="height:200px"></mat-divider>
-            <div class="stats">
-                <div style="margin-bottom: 10px">Zero</div>
-                <div style="margin-bottom: 10px">Trust</div>
-                <div>Security</div>
-            </div>
-        </mat-grid-tile>
-    </mat-grid-list>
-
-    <mat-divider style="height:5px; "></mat-divider>
-
-    <mat-grid-list cols="5" rowHeight="80px">
-        <mat-grid-tile
-          [colspan]="4"
-          [rowspan]="6"
-          [style.background]="'lightblue'">
+          [rowspan]="3"
+          [style.margin-left]="'5px'"
+          [style.background]="'#325889'">
             <div class="back">
                 <div class="container">
-                    <div class="row">
-                        <div style="padding: 0px; width:15%" >
-                            <img class="tank_img1" src="./assets/water-tank_des.png">
+                    <div class="row" style="padding-top: 10px">
+                        <div style="padding: 0px; width:175px">
+                            <img class="tank_img" src="./assets/water-tank_des.png">
                         </div>
 
-                        <div style="padding: 0px; width:31%;" >
+                        <div style="padding: 0px; width:31%; padding-top: 10px" >
                             <div class="flow">
-                                <div class="progress" style="height: 30px">
+                                <div class="progress" style="height: 30px;">
                                     <div 
-                                        class="progress-bar progress-bar-striped progress-bar-animated" 
+                                        class="progress-bar progress-bar-animated" 
                                         role="progressbar" 
                                         aria-valuenow="75" 
                                         aria-valuemin="0" 
@@ -69,7 +46,7 @@
                             </div>
                             <div class="progress progress-bar-vertical">
                                 <div 
-                                    class="progress-bar progress-bar-striped progress-bar-animated" 
+                                    class="progress-bar progress-bar-animated" 
                                     role="progressbar" 
                                     aria-valuenow="60" 
                                     aria-valuemin="0" 
@@ -79,45 +56,56 @@
                             </div>
                         </div>
 
-                        <div class='col-md-auto' style="padding: 0px; width:10.5%;">
-                            <img [ngClass]="getClassOfVal1(val1)"  src="./assets/valve.png"> 
-                            <img [ngClass]="getClassOfVal1(val1)"  src="./assets/sensorFlip.png">
+                        <div class='col-md-auto' style="padding: 0px; width:120px; padding-top: 10px">
+                            <img class="valve_img" src="./assets/valveConnection.png"> 
                         </div>          
 
-                        <div style="padding: 0px; width:31%;">
+                        <div style="padding: 0px; width:31%; padding-top: 10px">
                             <div class="flow">
                                 <div class="progress" style="height: 30px;" >
-                                    <div class="progress-bar progress-bar-striped  progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" [style.width.%]="getval1(val1)"></div>
+                                    <div 
+                                        class="progress-bar progress-bar-animated" 
+                                        role="progressbar" 
+                                        aria-valuenow="75" 
+                                        aria-valuemin="0" 
+                                        aria-valuemax="100" 
+                                        [style.width.%]="getval1()">
+                                    </div>
                                 </div>
                             </div>
                             <div class="progress progress-bar-vertical-2">
-                                <div class="progress-bar progress-bar-striped  progress-bar-animated" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" [style.height.%]="getval1(val1)">
+                                <div 
+                                    class="progress-bar progress-bar-animated" 
+                                    role="progressbar" 
+                                    aria-valuenow="60" 
+                                    aria-valuemin="0" 
+                                    aria-valuemax="100" 
+                                    [style.height.%]="getval1()">
                                 </div>
                             </div>
                         </div>
 
                         <div style="padding: 0px; width: 10%">
                             <div>
-                                    <img class="tank_des_img"  src="./assets/leakvalve.png">
-                                <div class="buttonCenter">
-                                    <mat-slide-toggle  [(ngModel)]="val1" (change)="updateVal()"></mat-slide-toggle>
-                                </div>
-                                <img class="tank_des_img2"  src="./assets/sensor.png">
+                                <img class="leak_img"  src="./assets/leakvalve.png">
+                                <!-- <div class="buttonCenter"> -->
+                                    <!-- <mat-slide-toggle  [(ngModel)]="val1" (change)="updateVal()"></mat-slide-toggle> -->
+                                <!-- </div> -->
                             </div>
                         </div>
                     </div>
 
                     
                     <div class="row">
-                        <div style="padding: 0px; width:15%">
-                            <img style=" visibility: hidden;" class="tank_img1" src="./assets/water-tank_des.png">
+                        <div style="padding: 0px; width:175px">
+                            <img style=" visibility: hidden;" class="tank_img" src="./assets/water-tank_des.png">
                         </div>
 
-                        <div style="padding-left: 20px; width:31%;">
+                        <div style="padding: 0px; padding-left: 20px; width:31%;">
                             <div>
                                 <div class="progress" style="height: 30px">
                                     <div 
-                                        class="progress-bar progress-bar-striped progress-bar-animated" 
+                                        class="progress-bar progress-bar-animated" 
                                         role="progressbar" 
                                         aria-valuenow="75" 
                                         aria-valuemin="0" 
@@ -128,47 +116,46 @@
                             </div>
                         </div>
 
-                        <div class='col-md-auto' style="padding: 0px; width:10.5%;">
-                            <img [ngClass]="getClassOfVal3(val3)"  src="./assets/valve.png"> 
-                            <img [ngClass]="getClassOfVal3(val3)"  src="./assets/sensorFlip.png">
+                        <div class='col-md-auto' style="padding: 0px; width:120px;">
+                            <img class="valve_img2"  src="./assets/valveConnection.png"> 
                         </div> 
 
                         <div style="padding: 0px; width:29%;">
                             <div>
                                 <div class="progress" style="height: 30px" >
                                     <div 
-                                        class="progress-bar progress-bar-striped progress-bar-animated" 
+                                        class="progress-bar progress-bar-animated" 
                                         role="progressbar" 
                                         aria-valuenow="75" 
                                         aria-valuemin="0" 
                                         aria-valuemax="100" 
-                                        [style.width.%]="getval3(val3)">
+                                        [style.width.%]="getval2()">
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div style="padding: 0px; width: 22px">
+                        <div style="padding: 0px; width: 23px">
                             <div>
                                 <div class="progress" style="height: 30px" >
                                     <div 
-                                        class="progress-bar progress-bar-striped progress-bar-animated" 
+                                        class="progress-bar progress-bar-animated" 
                                         role="progressbar" 
                                         aria-valuenow="50" 
                                         aria-valuemin="0" 
                                         aria-valuemax="100" 
-                                        style="width: 100%">
+                                        [style.width.%]="getval3()">
                                     </div>
                                 </div>
                             </div>
                             <div class="progress progress-bar-vertical-2">
                                 <div 
-                                    class="progress-bar progress-bar-striped progress-bar-animated" 
+                                    class="progress-bar progress-bar-animated" 
                                     role="progressbar" 
                                     aria-valuenow="60" 
                                     aria-valuemin="0" 
-                                    aria-valuemax="100" 
-                                    [style.height.%]="100">
+                                    aria-valuemax="100"
+                                    [style.height.%]="getval3()">
                                 </div>
                             </div>
                         </div>
@@ -176,37 +163,37 @@
 
 
                     <div class="row">
-                        <div style="padding: 0px; width:15%; margin-top:-100px;" >
-                            <img class="tank_img1" src="./assets/water-tank_des.png">
+                        <div style="padding: 0px; width:75%"> </div>
+                        <div style="padding: 0px; width:25%; margin-top:-120px;" >
+                            <img class="tank_img" src="./assets/water-tank_des.png">
                         </div>
-
-                        <div style="padding: 0px; width:36%">
-                            <div class="flow_3">
-                                <div class="progress" style="height: 30px" >
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div style="padding: 0px; width:36%">
-                            <div>
-                                <div class="progress" style="height: 30px" >
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div style="padding: 0px; width:12%"> </div>
                     </div>
                 </div>
             </div>
         </mat-grid-tile>
-        
+
         <mat-grid-tile
           [colspan]="1"
-          [rowspan]="6"
-          [style.background]="'lightgreen'">
+          [rowspan]="1"
+          [style.background]="'#6682a6'">
+            <button type="button" id="leak-detected" (click)="onNetworkSwitch($event)">
+                <div class="scenarios">
+                    Network Switch
+                </div>
+            </button>
         </mat-grid-tile>
+
+        <mat-grid-tile
+          [colspan]="1"
+          [rowspan]="1"
+          [style.background]="'#6682a6'">
+            <button type="button" id="leak-detected" (click)="onBadActor($event)">
+                <div class="scenarios">
+                    Bad Actor
+                </div>
+            </button>
+        </mat-grid-tile>
+        
     </mat-grid-list>
 
 </div>

@@ -44,6 +44,7 @@ import {ReactiveFormsModule } from '@angular/forms';
 import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FlowchartComponent } from './flowchart/flowchart.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -98,6 +99,7 @@ import { FlowchartComponent } from './flowchart/flowchart.component';
     MatNativeDateModule,
     CommonModule,
     HttpClientJsonpModule,
+    NgbModule,
   
  
     

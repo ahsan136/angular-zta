@@ -1,6 +1,6 @@
 .main{
   background-color: #002f6c;
-  padding: 30px
+  padding: 20px
 }
 
 .back{
@@ -37,7 +37,7 @@
 
 .centered {
   position: absolute;
-  top: 49%;
+  top: 48%;
   left: 47%;
 }
 
@@ -55,12 +55,23 @@
 
 .center-bottom {
   position: absolute;
-  bottom: 65px;
-  left: 46.5%;
+  bottom: 70px;
+  left: 45.5%;
 }
 
 .image-span{
   text-align: center;
+}
+
+.narration-box{
+  float: right; 
+  background-color: #002f6c; 
+  color: white;
+  font-size: 20px; 
+  height: 125px; 
+  width: 300px; 
+  margin-right: 15px;
+  padding: 30px;
 }
 
 .horizontal-dotted-line{

@@ -274,10 +274,23 @@
                 </div>
 
                 <div class="row" style="padding-top: 10px">
-                    <div class="image-span" style="width:100%; padding-right: 25px">
-                        <img style="width: 120px; height: 120px" src="./assets/WAN2.png">
-                        <div class="text-overlay center-bottom">WAN</div>
+                    <div style="width:40%">
                     </div>
+                    <div class="image-span" style="width:20%; padding-right: 25px">
+                        <img style="width: 120px; height: 120px;" src="./assets/WAN2.png">
+                    </div>
+                    <div style="width:40%">
+                        <div class="narration-box" *ngIf="getNetworkPhase() == 1">
+                            Network operations center(NOC) wide area network(WAN) link fails
+                        </div>
+                        <div class="narration-box" *ngIf="getNetworkPhase() == 2">
+                            Network operations center(NOC) switches to satellite communication
+                        </div>
+                        <div class="narration-box" *ngIf="getNetworkPhase() == 3">
+                            Pumping stations switch to satellite communication
+                        </div>
+                    </div>
+                    <div class="text-overlay center-bottom">WAN</div>
                 </div>
 
             </div>

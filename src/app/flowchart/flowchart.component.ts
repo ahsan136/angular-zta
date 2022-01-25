@@ -32,6 +32,7 @@ export class FlowchartComponent implements OnInit {
   verticalWANcom:string = "good";
   horizontalSatCom:string = "none";
   horizontalWANcom:string = "good";
+  networkPhaseNum = 1;
 
 
 
@@ -43,6 +44,7 @@ export class FlowchartComponent implements OnInit {
     this.verticalWANcom = "good";
     this.horizontalSatCom = "none";
     this.horizontalWANcom = "good";
+    this.networkPhaseNum = 1;
     this.val1 = true;
     this.val3 = true;
     this.val2 = true
@@ -84,6 +86,7 @@ export class FlowchartComponent implements OnInit {
     this.val3 = false;
     // may change later 
 
+    this.networkPhaseNum = 1;
     this.networkFailure();
   }
 
@@ -94,6 +97,7 @@ export class FlowchartComponent implements OnInit {
       });
 
       this.verticalWANcom = "bad";
+      this.networkPhaseNum = 1;
       this.switchToSatCom();
 
     } catch (error) {
@@ -110,6 +114,7 @@ export class FlowchartComponent implements OnInit {
       });
 
       this.verticalSatCom = "good";
+      this.networkPhaseNum = 2;
       this.switchAllToSatCom();
 
     } catch (error) {
@@ -127,6 +132,7 @@ export class FlowchartComponent implements OnInit {
 
       this.horizontalSatCom = "good";
       this.horizontalWANcom = "none";
+      this.networkPhaseNum = 3;
 
     } catch (error) {
       console.error(error);
@@ -146,6 +152,7 @@ export class FlowchartComponent implements OnInit {
     this.verticalWANcom = "good";
     this.horizontalSatCom = "none";
     this.horizontalWANcom = "good";
+    this.networkPhaseNum = 1;
     this.val1 = true;
     this.val2 = true;
     this.val3 = true;
@@ -248,6 +255,10 @@ export class FlowchartComponent implements OnInit {
     } else {
       return "horizontal-no-connection horizontal-solid-line"
     }
+  }
+
+  getNetworkPhase() {
+    return this.networkPhaseNum;
   }
 
 }

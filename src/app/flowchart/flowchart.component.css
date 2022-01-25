@@ -30,6 +30,83 @@
   margin-left: 20px;
 }
 
+.text-overlay {
+  color: white;
+  font-size: 30px;
+}
+
+.centered {
+  position: absolute;
+  top: 49%;
+  left: 47%;
+}
+
+.left-middle {
+  position: absolute;
+  top: 47%;
+  left: 45px;
+}
+
+.right-middle {
+  position: absolute;
+  top: 47%;
+  right: 45px;
+}
+
+.center-bottom {
+  position: absolute;
+  bottom: 65px;
+  left: 46.5%;
+}
+
+.image-span{
+  text-align: center;
+}
+
+.horizontal-dotted-line{
+  width: 400px;
+  border-top-width: 10px; 
+  border-top-style: dotted;
+}
+
+.horizontal-solid-line{
+  width: 400px;
+  height: 10px;
+  border-top-width: 10px; 
+  border-top-style: solid;
+  border-radius: 50px;
+}
+
+.horizontal-good-connection{
+  border-top-color: lightgreen;
+  transition: border-top-color 2s;
+}
+
+.horizontal-bad-connection{
+  border-top-color: rgb(250, 120, 68);
+  transition: border-top-color 2s;
+}
+
+.horizontal-no-connection{
+  border-top-color: lightskyblue;
+  transition: border-top-color 2s;
+}
+
+.vertical-good-connection{
+  border-right-color: lightgreen;
+  transition: border-right-color 2s;
+}
+
+.vertical-bad-connection{
+  border-right-color: rgb(250, 120, 68);
+  transition: border-right-color 2s;
+}
+
+.vertical-no-connection{
+  border-right-color: lightskyblue;
+  transition: border-right-color 2s;
+}
+
 button{
   position: relative;
   overflow: hidden;
@@ -46,7 +123,6 @@ button{
 
 button:hover{
   background: #7f97b5;
-  /* #4c6d98; */
   cursor: pointer; 
   transition: background-color 0.5s;
   color: #333; 
@@ -143,7 +219,6 @@ button:hover{
 }
 
 .tank_img{
-  /* height: 175px; */
   width: 175px;
   padding: 0px;
 }

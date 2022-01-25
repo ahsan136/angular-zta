@@ -7,7 +7,7 @@
 </div>
 
 <div class="main">
-    <mat-grid-list cols="6" rowHeight="200px">
+    <mat-grid-list cols="6" rowHeight="210px">
         <mat-grid-tile
           [colspan]="1"
           [rowspan]="1"
@@ -19,7 +19,8 @@
             </button>
         </mat-grid-tile>
 
-        <mat-grid-tile
+        <!-- leak or bad actor -->
+        <mat-grid-tile *ngIf="getval1() == 100 || getval2() == 100"
           [colspan]="5"
           [rowspan]="3"
           [style.margin-left]="'5px'"
@@ -88,9 +89,6 @@
                         <div style="padding: 0px; width: 10%">
                             <div>
                                 <img class="leak_img"  src="./assets/leakvalve.png">
-                                <!-- <div class="buttonCenter"> -->
-                                    <!-- <mat-slide-toggle  [(ngModel)]="val1" (change)="updateVal()"></mat-slide-toggle> -->
-                                <!-- </div> -->
                             </div>
                         </div>
                     </div>
@@ -163,12 +161,125 @@
 
 
                     <div class="row">
-                        <div style="padding: 0px; width:75%"> </div>
-                        <div style="padding: 0px; width:25%; margin-top:-120px;" >
-                            <img class="tank_img" src="./assets/water-tank_des.png">
+                        <div style="padding: 0px; width:79%"> </div>
+                        <div style="padding: 0px; width:21%; margin-top:-120px;" >
+                            <img class="tank_img" src="./assets/city.png">
                         </div>
                     </div>
                 </div>
+            </div>
+        </mat-grid-tile>
+
+        <!-- network switch -->
+        <mat-grid-tile *ngIf="getval3() == 0"
+          [colspan]="5"
+          [rowspan]="3"
+          [style.margin-left]="'5px'"
+          [style.background]="'#325889'">
+            <div class="back">
+                <div class="row" style="padding-top: 5px">
+                    <div class="image-span" style="width:100%; padding-bottom: 10px">
+                        <img style="width: 100px; height: 100px" src="./assets/satellite.png">
+                    </div>
+                </div>
+
+                <div class="row" style="padding-top: 10px">
+                    <div class="image-span" style="width:40%"></div>
+
+                    <div style="width:8%">
+                        <mat-divider [ngClass]="getHorizontalSatelliteConnection()" horizontal
+                            style=
+                            "-webkit-transform: rotate(-25deg);
+                            -moz-transform: rotate(-25deg);
+                            -o-transform: rotate(-25deg);
+                            transform: translate(-350px,30px) rotate(-25deg)">
+                        </mat-divider>
+                    </div>
+
+                    <div class="image-span" style="width:10px">
+                        <mat-divider [ngClass]="getVerticalSatelliteConnection()" vertical
+                            style=
+                            "height: 105px; 
+                            width: 10px; 
+                            border-right-width: 10px; 
+                            border-right-style: dotted;">
+                        </mat-divider>
+                    </div>
+
+                    <div style="width:8%">
+                        <mat-divider [ngClass]="getHorizontalSatelliteConnection()" horizontal
+                            style=
+                            "-webkit-transform: rotate(25deg);
+                            -moz-transform: rotate(25deg);
+                            -o-transform: rotate(25deg);
+                            transform: translate(40px,30px) rotate(25deg);">
+                        </mat-divider>
+                    </div>
+
+                    <div class="image-span" style="width:40%"></div>
+                </div>
+
+                <div class="row" style="padding-top: 10px">
+                    <div style="width:33%; padding-left: 30px">
+                        <img style="width: 100px; height: 100px" src="./assets/blue-circle.png">
+                        <div class="text-overlay left-middle">PS1</div>
+                    </div>
+
+                    <div class="image-span" style="width:33%; padding-top: 10px">
+                        <img style="width: 100px; height: 100px" src="./assets/circle.png">
+                        <div class="text-overlay centered" style="padding-right: 10px">NOC</div>
+                    </div>
+
+                    <div style="width:33%; padding-right: 20px">
+                        <img style="width: 100px; height: 100px; float: right" src="./assets/blue-circle.png">
+                        <div class="text-overlay right-middle">PS2</div>
+                    </div>
+                </div>
+
+                <div class="row" style="padding-top: 10px">
+                    <div class="image-span" style="width:40%"></div>
+
+                    <div class="image-span" style="width:8%">
+                        <mat-divider [ngClass]="getHorizontalWANConnection()" horizontal
+                            style=
+                            "-webkit-transform: rotate(25deg);
+                            -moz-transform: rotate(25deg);
+                            -o-transform: rotate(25deg);
+                            transform: translate(-350px,50px) rotate(25deg);">
+                        </mat-divider>
+                    </div>
+
+                    <div class="image-span" style="width:10px">
+                        <mat-divider [ngClass]="getVerticalWANConnection()" vertical
+                            style=
+                            "height: 105px; 
+                            width: 10px; 
+                            border-right-width: 10px; 
+                            border-right-style: solid;
+                            border-radius: 50px;">
+                        </mat-divider>
+                    </div>
+
+                    <div class="image-span" style="width:8%">
+                        <mat-divider [ngClass]="getHorizontalWANConnection()" horizontal
+                            style=
+                            "-webkit-transform: rotate(-25deg);
+                            -moz-transform: rotate(-25deg);
+                            -o-transform: rotate(-25deg);
+                            transform: translate(35px,55px) rotate(-25deg);">
+                        </mat-divider>
+                    </div>
+
+                    <div class="image-span" style="width:40%"></div>
+                </div>
+
+                <div class="row" style="padding-top: 10px">
+                    <div class="image-span" style="width:100%; padding-right: 25px">
+                        <img style="width: 120px; height: 120px" src="./assets/WAN2.png">
+                        <div class="text-overlay center-bottom">WAN</div>
+                    </div>
+                </div>
+
             </div>
         </mat-grid-tile>
 
@@ -178,7 +289,9 @@
           [style.background]="'#6682a6'">
             <button type="button" id="leak-detected" (click)="onNetworkSwitch($event)">
                 <div class="scenarios">
-                    Network Switch
+                    <div>Network Failure</div> 
+                    <br/>
+                    <div>& Recovery</div>
                 </div>
             </button>
         </mat-grid-tile>

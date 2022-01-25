@@ -26,7 +26,7 @@
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css",
-              "C:/Users/e415511/Documents/ZTA/zta/node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "C:/Users/e415511/Documents/ZTA/angular-zta/node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },

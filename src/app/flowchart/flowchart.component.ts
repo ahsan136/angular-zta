@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import * as delay from 'delay';
 
 export interface Tile {
   color: string;
@@ -27,38 +28,43 @@ export class FlowchartComponent implements OnInit {
   val2:boolean = true; 
   val3:boolean = true; 
 
+  verticalSatCom:string = "none";
+  verticalWANcom:string = "good";
+  horizontalSatCom:string = "none";
+  horizontalWANcom:string = "good";
+
+
+
+  // leak detected 
+
   onLeakDetected(value){
-    this.openLeakModal();
-
-    this.val1 = false;
-    this.val3 = true;
-    return this.val2=true
-  }
-
-  onNetworkSwitch(value){
-    this.val1 = false;
-    this.val2 = false;
-    this.val3 = false;
-
-    this.openNetworkModal();
-
-    setTimeout(this.resetSystem, 4000);
-  }
-
-  resetSystem(){
-    this.val1 = true;
-    this.val2 = true;
-    this.val3 = true;
-    console.log("4 sec");
-  }
-
-  onBadActor(value){
-    this.openBadActorModal();
+    // this.openLeakModal();
+    this.verticalSatCom = "none";
+    this.verticalWANcom = "good";
+    this.horizontalSatCom = "none";
+    this.horizontalWANcom = "good";
     this.val1 = true;
     this.val3 = true;
-    return this.val2=false
+    this.val2 = true
+    
+    this.fixLeak();
   }
-  
+
+  async fixLeak() {
+    try {
+      await new Promise(f => {
+        setTimeout(f, 1000);
+      });
+
+      this.val1 = false;
+
+    } catch (error) {
+      console.error(error);
+    } finally {
+      console.log("Waited 1 second");
+    }
+  }
+
   openLeakModal() {
     this.dialog.open(ModalDataDialog, {
       data: {
@@ -68,13 +74,98 @@ export class FlowchartComponent implements OnInit {
     });
   }
 
-  openNetworkModal() {
-    this.dialog.open(ModalDataDialog, {
-      data: {
-        error: 'Network failure.',
-        message: 'Switched network connection from terrestrial to space ',
-      },
-    });
+
+
+  // network switch
+
+  onNetworkSwitch(value){
+    this.val1 = false;
+    this.val2 = false;
+    this.val3 = false;
+    // may change later 
+
+    this.networkFailure();
+  }
+
+  async networkFailure() {
+    try {
+      await new Promise(f => {
+        setTimeout(f, 2000);
+      });
+
+      this.verticalWANcom = "bad";
+      this.switchToSatCom();
+
+    } catch (error) {
+      console.error(error);
+    } finally {
+      console.log("Waited 2 seconds");
+    }
+  }
+
+  async switchToSatCom() {
+    try {
+      await new Promise(f => {
+        setTimeout(f, 4000);
+      });
+
+      this.verticalSatCom = "good";
+      this.switchAllToSatCom();
+
+    } catch (error) {
+      console.error(error);
+    } finally {
+      console.log("Waited 4 seconds");
+    }
+  }
+
+  async switchAllToSatCom() {
+    try {
+      await new Promise(f => {
+        setTimeout(f, 4000);
+      });
+
+      this.horizontalSatCom = "good";
+      this.horizontalWANcom = "none";
+
+    } catch (error) {
+      console.error(error);
+    } finally {
+      console.log("Waited 4 seconds");
+    }
+  }
+
+
+
+  // bad actor 
+
+  onBadActor(value){
+    // this.openBadActorModal();
+
+    this.verticalSatCom = "none";
+    this.verticalWANcom = "good";
+    this.horizontalSatCom = "none";
+    this.horizontalWANcom = "good";
+    this.val1 = true;
+    this.val2 = true;
+    this.val3 = true;
+
+    this.blockBadActor();
+  }
+
+  async blockBadActor() {
+    try {
+      await new Promise(f => {
+        setTimeout(f, 1000);
+      });
+
+      this.val2 = false
+
+    } catch (error) {
+      console.error(error);
+    } finally {
+      console.log("Waited 1 second");
+    }
   }
 
   openBadActorModal() {
@@ -85,6 +176,10 @@ export class FlowchartComponent implements OnInit {
       },
     });
   }
+
+
+
+  // getters 
 
   getval1(){
     if(this.val1==true){
@@ -110,6 +205,48 @@ export class FlowchartComponent implements OnInit {
     }
     else if(this.val3==false){
       return 0;
+    }
+  }
+
+  getVerticalSatelliteConnection(){
+    if(this.verticalSatCom == "good"){
+      return "vertical-good-connection"
+    }
+    else if (this.verticalSatCom == "bad"){ 
+      return "vertical-bad-connection"
+    } else {
+      return "vertical-no-connection"
+    }
+  }
+
+  getVerticalWANConnection(){
+    if(this.verticalWANcom == "good"){
+      return "vertical-good-connection"
+    }
+    else if (this.verticalWANcom == "bad"){ 
+      return "vertical-bad-connection"
+    }
+  }
+
+  getHorizontalSatelliteConnection(){
+    if(this.horizontalSatCom == "good"){
+      return "horizontal-good-connection horizontal-dotted-line"
+    }
+    else if (this.horizontalSatCom == "bad"){ 
+      return "horizontal-bad-connection horizontal-dotted-line"
+    } else {
+      return "horizontal-no-connection horizontal-dotted-line"
+    }
+  }
+
+  getHorizontalWANConnection(){
+    if(this.horizontalWANcom == "good"){
+      return "horizontal-good-connection horizontal-solid-line"
+    }
+    else if (this.horizontalWANcom == "bad"){ 
+      return "horizontal-bad-connection horizontal-solid-line"
+    } else {
+      return "horizontal-no-connection horizontal-solid-line"
     }
   }
 

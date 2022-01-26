@@ -55,8 +55,15 @@
 
 .center-bottom {
   position: absolute;
-  bottom: 70px;
-  left: 45.5%;
+  bottom: 63px;
+  left: 45%;
+}
+
+.text-box{
+  background-color: lightskyblue; 
+  width: 85px; 
+  border-radius: 5px;
+  padding: 8px
 }
 
 .image-span{
@@ -153,6 +160,10 @@ button:hover{
   float: right;
   width: 240px;
   filter: invert(100%) brightness(10);
+}
+
+.wan-image{
+  filter: brightness(2.6)
 }
 
 .mat-list-item{

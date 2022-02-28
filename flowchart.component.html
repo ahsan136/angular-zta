@@ -1,0 +1,213 @@
+<h1 class="title">ZTA Dashboard</h1>
+<div class = "back">
+    
+    <div class ="container">
+        <!-- <img class = "tank_img"  src="./assets/water-tank.png"> -->
+
+        <div class="row">
+            <div class="col-md-auto" style="padding: 0px;" >
+                
+                <img class = "tank_img1"  src="./assets/water-tank.png">
+
+                
+
+            </div>
+
+            <div class="col-sm" style="padding: 0px;" >
+                
+                <div class= "flow">
+                    <div class="progress" style="height: 30px;" >
+                        <div class="progress-bar progress-bar-striped  progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="progress progress-bar-vertical">
+                    <div class="progress-bar progress-bar-striped  progress-bar-animated" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="height: 100%;">
+                    </div>
+                </div>
+                
+
+            </div>
+            <div class='col-md-auto' style="padding: 0px;">
+                
+
+                <img [ngClass]="getClassOfVal1(val1)"  src="./assets/valve.png"> 
+                <img [ngClass]="getClassOfVal1(val1)"  src="./assets/sensorFlip.png">
+
+
+                <!-- <input (click)="enableDisableRule()" [ngClass]="{'valve_img' : toggle, 'valve_img_red': !toggle}" type="image" src="./assets/valve.png" />        -->
+                    
+            </div>
+            
+            
+            <!-- <div class='col-sm' style="padding: 0px;">
+                <div class= "flow">
+                    <div class="progress" style="height: 30px;" >
+                        <div class="progress-bar progress-bar-striped  progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" [style.width.%]="getval1(val1)"></div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <img class = "valve_img"  src="./assets/valve.png">           -->
+
+            
+
+            <div class='col'style="padding: 0px;">
+                <div class= "flow">
+                    <div class="progress" style="height: 30px;" >
+                        <div class="progress-bar progress-bar-striped  progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" [style.width.%]="getval1(val1)"></div>
+                    </div>
+                </div>
+                <div class="progress progress-bar-vertical-2">
+                    <div class="progress-bar progress-bar-striped  progress-bar-animated" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" [style.height.%]="getval1(val1)">
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class='"col-sm"' style="padding: 0px; width: 1px">
+
+                <div class= "flow_2">
+                        <img class = "tank_des_img"  src="./assets/leakvalve.png">
+                    <div class="buttonCenter">
+                        <mat-slide-toggle  [(ngModel)]="val1" (change)="updateVal()"></mat-slide-toggle>
+                    
+                    </div>
+                    <img class = "tank_des_img2"  src="./assets/sensor.png">
+
+                     
+                    
+                </div>
+                
+                
+            </div>
+
+            
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-auto" style="padding: 0px;" >
+                
+                <img style=" visibility: hidden;" class = "tank_img2"  src="./assets/water-tank.png">
+                
+
+                
+
+            </div>
+
+            <div class="col-sm" style="padding: 0px;" >
+                
+                <div class= "flow_2">
+                    <div class="progress" style="height: 30px;padding-left: 20px;" >
+                        <div class="progress-bar progress-bar-striped  progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                    </div>
+                </div>
+                
+
+            </div>
+
+            <!-- <img class = "valve_img_2" src="./assets/valve.png">           -->
+            <div class='col-md-auto' style="padding: 0px;">
+                <img [ngClass]="getClassOfVal3(val3)"  src="./assets/valve.png"> 
+                <img [ngClass]="getClassOfVal3(val3)"  src="./assets/sensorFlip.png">
+
+                
+
+                <!-- <input (click)="enableDisableRule()" [ngClass]="{'valve_img_2' : toggle, 'valve_img_red_2': !toggle}" type="image" src="./assets/valve.png" />        -->
+     
+            </div>
+            
+            <div class='col-sm' style="padding: 0px;">
+
+                <div class= "flow_2">
+                    
+                    <div class="progress" style="height: 30px" >
+                        <div class="progress-bar progress-bar-striped  progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" [style.width.%]="getval3(val3)"></div>
+                    </div>
+                </div>
+                
+                
+            </div>
+            
+            <div class='"col-sm"' style="padding: 0px; width: 20px">
+
+                <div class= "flow_2">
+                    <div class="progress" style="height: 30px" >
+                        <div class="progress-bar progress-bar-striped  progress-bar-animated" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                    </div>
+                </div>
+                
+                <div class="progress progress-bar-vertical-2">
+                    <div class="progress-bar progress-bar-striped  progress-bar-animated" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" [style.height.%]="100">
+                    </div>
+                </div>
+                
+            </div>
+            
+            
+
+           
+
+
+            
+        </div>
+        <div class="row">
+            <div class="col-md-auto" style="padding: 0px;" >
+                
+                <img class = "tank_img3"  src="./assets/water-tank.png">
+
+                
+
+            </div>
+            <div class="col-sm" style="padding: 0px;" >
+                
+                <div class= "flow_3">
+                    <div class="progress" style="height: 30px" >
+                        <div class="progress-bar progress-bar-striped  progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                    </div>
+                </div>
+                
+
+            </div>
+
+            <!-- <img class = "valve_img_2" src="./assets/valve.png">           -->
+            <div class='col-md-auto' style="padding: 0px;">
+                      
+            </div>
+            
+            <div class='col-sm' style="padding: 0px;">
+
+                <div class= "flow_2">
+                    <div class="progress" style="height: 30px" >
+                        <div class="progress-bar progress-bar-striped  progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                    </div>
+                </div>
+                
+            </div>
+
+
+
+            
+        </div>
+    
+    </div>
+
+    
+</div>
+<div>
+
+  
+    <!-- <mat-slide-toggle  [(ngModel)]="val1" (change)="updateVal()">Valve 1</mat-slide-toggle>
+    <mat-slide-toggle  [(ngModel)]="val2" (change)="updateVal()">Valve 2</mat-slide-toggle>
+    <mat-slide-toggle  [(ngModel)]="val3" (change)="updateVal()">Valve 3</mat-slide-toggle> -->
+
+
+
+    <input  [(ngModel)]="val1" (change)="updateVal()"/>
+    <input  [(ngModel)]="val3" (change)="updateVal()"/>
+
+
+</div>
+
+
+
+
